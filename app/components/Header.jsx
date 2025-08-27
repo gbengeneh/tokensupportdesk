@@ -1,8 +1,9 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiFillHighlight } from "react-icons/ai";
 import { useTheme } from '../contexts/ThemeContext';
+import Link from 'next/link';
 
 const Header = () => {
   const { isDarkMode, toggleTheme, theme } = useTheme();
@@ -30,28 +31,35 @@ const lighticon = (
   } text-${theme === 'dark' ? 'white' : 'black'}`}>
 
       <div className="flex items-center ">
+        <Link href="/">
         <div className="p-1 border-2 border-blue-600 rounded-xl">
            <AiFillHighlight className="text-blue-600 " size={20} />
        </div>
-        
+        </Link>
       </div>
       
       {/* Center Navigation - Visible only on large screens */}
       <div className="hidden lg:flex items-center space-x-8">
+        <Link href="/walletlist">
         <span className="text-[#62759d] font-medium hover:text-blue-300 transition-colors cursor-pointer">
           Home
         </span>
+        </Link>
+          <Link href={"/walletlist"}>
         <span className="text-[#62759d] font-medium hover:text-blue-300 transition-colors cursor-pointer">
           Explore
         </span>
+        </Link>
       </div>
       <div className="flex items-center">
         <button onClick={toggleTheme} className="text-white mr-4 p-2 rounded-full hover:bg-[rgb(43,158,255)] dark:hover:bg-[rgb(43,158,255)] transition-colors">
           {isDarkMode ? darkicon : lighticon}
         </button>
+        <Link href="/walletlist">
         <button className="bg-[rgb(43,158,255)] font-medium text-gray-300 px-4 py-2 rounded hover:bg-[rgb(43,158,255)] dark:bg-[rgb(43,158,255)] dark:hover:bg-[rgb(43,158,255)] transition-colors">
           Connect
         </button>
+        </Link>
       </div>
     </header>
   );

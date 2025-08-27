@@ -3,6 +3,7 @@ import React from "react";
 import { BsArrowRightShort } from "react-icons/bs";
 import { services } from "../data/serviceData";
 import { useTheme } from '../contexts/ThemeContext';
+import Link from "next/link";
 
 const Services = () => {
   const { theme } = useTheme();
@@ -37,12 +38,12 @@ const Services = () => {
                 <p className="text-gray-100 dark:text-gray-100 mb-4 leading-relaxed">
                   {service.description}
                 </p>
-                <a
-                  href="#"
+                <Link
+                  href={"/walletlist"}
                   className="text-blue-500 flex items-center gap-2 hover:underline font-medium"
                 >
                   Explore <BsArrowRightShort className="text-lg" />
-                </a>
+                </Link>
               </div>
             </div>
           ))}
