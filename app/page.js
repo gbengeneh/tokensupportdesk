@@ -13,12 +13,12 @@ const Page = () => {
       <Hero />
       <Services />
        {/* Gray Pencil Triangle after all service cards - Longer version */}
-      <div className="relative w-full flex justify-end mt-1 pt-0">
+     <div className="relative w-full flex justify-end mt-1 pt-0">
   <div
     className="w-0 h-0
-      border-t-[30px] border-t-transparent
-      border-r-[250px] border-r-gray-900
-      border-b-[30px] border-b-transparent"
+      border-t-[20px] border-t-transparent
+      border-r-[90vw] border-r-gray-900
+      border-b-[20px] border-b-transparent"
   ></div>
 </div>
 
