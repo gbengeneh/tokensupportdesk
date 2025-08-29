@@ -31,9 +31,7 @@ const Header = () => {
   // If user is on walletlist, show only centered logo
   if (pathname === "/walletlist") {
     return (
-      <header className={`fixed top-0 left-0 w-full z-50 flex items-center justify-center py-5 bg-${
-        theme === 'dark' ? 'black' : 'white'
-      }`}>
+      <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-center py-5 bg-[#040216]">
         <Link href="/">
           <div className="p-1 border-2 border-blue-600 rounded-xl">
             <AiFillHighlight className="text-blue-600 " size={24} />

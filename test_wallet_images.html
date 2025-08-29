@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Wallet Images</title>
+</head>
+<body>
+    <h1>Wallet Images Test</h1>
+    <div id="image-container"></div>
+
+    <script>
+        // Sample wallet data (same as in wallets.js)
+        const wallets = [
+            { id: 1, name: "MetaMask", icon: "https://cryptologos.cc/logos/metamask-fox-logo.png" },
+            { id: 2, name: "Trust Wallet", icon: "https://trustwallet.com/assets/images/media/assets/TWT.png" },
+            { id: 3, name: "Coinbase", icon: "https://cryptologos.cc/logos/coinbase-coin-logo.png" },
+            { id: 4, name: "Phantom", icon: "https://cryptologos.cc/logos/phantom-phantom-logo.png" },
+            { id: 5, name: "Rainbow", icon: "https://avatars.githubusercontent.com/u/51896957?s=200&v=4" },
+            { id: 6, name: "Ledger", icon: "https://cryptologos.cc/logos/ledger-logo.png" },
+            { id: 7, name: "Trezor", icon: "https://cryptologos.cc/logos/trezor-logo.png" },
+            { id: 8, name: "WalletConnect", icon: "https://avatars.githubusercontent.com/u/37784886?s=200&v=4" },
+            { id: 9, name: "MyTon Wallet", icon: "https://mytonwallet.io/img/logo.svg" },
+            { id: 10, name: "Tonkeeper Wallet", icon: "https://tonkeeper.com/assets/img/logo.png" },
+            { id: 11, name: "TonHub Wallet", icon: "https://tonhub.com/logo.png" },
+            { id: 12, name: "Electrum", icon: "https://electrum.org/img/electrum_logo.png" },
+            { id: 13, name: "Uniswap Wallet", icon: "https://cryptologos.cc/logos/uniswap-uni-logo.png" },
+            { id: 14, name: "Best Wallet", icon: "https://bestwallet.io/logo.png" },
+            { id: 15, name: "Solana Wallet", icon: "https://cryptologos.cc/logos/solana-sol-logo.png" },
+            { id: 16, name: "Solflare Wallet", icon: "https://solflare.com/favicon.png" },
+            { id: 17, name: "Unisat Wallet", icon: "https://unisat.io/favicon.png" },
+            { id: 18, name: "OKX Wallet", icon: "https://cryptologos.cc/logos/okb-okb-logo.png" },
+            { id: 19, name: "Xverse Wallet", icon: "https://xverse.app/logo.png" },
+            { id: 20, name: "Magic Eden Wallet", icon: "https://magiceden.io/static/favicon.ico" },
+            { id: 21, name: "Leather Wallet", icon: "https://leather.io/favicon.ico" },
+            { id: 22, name: "Asigna Wallet", icon: "https://asigna.io/logo.png" },
+            { id: 23, name: "BRD Wallet", icon: "https://brd.com/img/favicon.png" },
+            { id: 24, name: "Saitamask Wallet", icon: "https://saitamatoken.com/logo.png" },
+            { id: 25, name: "Terra Station", icon: "https://cryptologos.cc/logos/terra-luna-luna-logo.png" },
+            { id: 26, name: "Cosmos Station", icon: "https://cryptologos.cc/logos/cosmos-atom-logo.png" },
+            { id: 27, name: "Exodus Wallet", icon: "https://www.exodus.com/favicon.ico" },
+            { id: 28, name: "Argent", icon: "https://argent.xyz/favicon.ico" },
+            { id: 29, name: "Binance Chain", icon: "https://cryptologos.cc/logos/binance-coin-bnb-logo.png" },
+            { id: 30, name: "Safemoon", icon: "https://cryptologos.cc/logos/safemoon-safemoon-logo.png" },
+            { id: 31, name: "Gnosis Safe", icon: "https://safe.global/favicon.ico" },
+            { id: 32, name: "DeFi Wallet", icon: "https://crypto.com/defi-wallet/favicon.ico" },
+            { id: 33, name: "Pillar", icon: "https://pillar.fi/favicon.ico" },
+            { id: 34, name: "imToken", icon: "https://token.im/favicon.ico" },
+            { id: 35, name: "ONTO", icon: "https://onto.app/favicon.ico" },
+            { id: 36, name: "TokenPocket", icon: "https://tokenpocket.pro/favicon.ico" },
+            { id: 37, name: "Aave", icon: "https://cryptologos.cc/logos/aave-aave-logo.png" },
+            { id: 38, name: "Digitex", icon: "https://cryptologos.cc/logos/digitex-futures-dgtx-logo.png" },
+            { id: 39, name: "Portis", icon: "https://portis.io/favicon.ico" },
+            { id: 40, name: "Fortmatic", icon: "https://fortmatic.com/favicon.ico" },
+            { id: 41, name: "MathWallet", icon: "https://mathwallet.org/favicon.ico" },
+            { id: 42, name: "BitPay", icon: "https://bitpay.com/favicon.ico" },
+            { id: 43, name: "Ledger Live", icon: "https://www.ledger.com/favicon.ico" },
+            { id: 44, name: "WallETH", icon: "https://walleth.org/logo.png" },
+            { id: 45, name: "Authereum", icon: "https://authereum.org/favicon.ico" },
+            { id: 46, name: "Dharma", icon: "https://dharma.io/favicon.ico" },
+            { id: 47, name: "1inch Wallet", icon: "https://cryptologos.cc/logos/1inch-1inch-logo.png" },
+            { id: 48, name: "Huobi", icon: "https://cryptologos.cc/logos/huobi-token-ht-logo.png" },
+            { id: 49, name: "Eidoo", icon: "https://eidoo.io/favicon.ico" },
+            { id: 50, name: "MYKEY", icon: "https://mykey.org/favicon.ico" },
+            { id: 51, name: "Loopring", icon: "https://cryptologos.cc/logos/loopring-lrc-logo.png" },
+            { id: 52, name: "TrustVault", icon: "https://trustology.io/favicon.ico" },
+            { id: 53, name: "Atomic", icon: "https://atomicwallet.io/favicon.ico" },
+            { id: 54, name: "Coin98", icon: "https://coin98.com/favicon.ico" },
+            { id: 55, name: "Tron", icon: "https://cryptologos.cc/logos/tron-trx-logo.png" },
+            { id: 56, name: "Alice", icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png" }, // placeholder
+            { id: 57, name: "AlphaWallet", icon: "https://alphawallet.com/wp-content/uploads/2019/07/cropped-AWLogo-270x270.png" },
+            { id: 58, name: "D'CENT", icon: "https://www.dcentwallet.com/wp-content/uploads/2020/04/dcent-logo.png" },
+            { id: 59, name: "ZelCore", icon: "https://zel.network/wp-content/uploads/2020/06/zelcore-icon.png" },
+            { id: 60, name: "Nash", icon: "https://nash.io/static/images/favicon/android-chrome-512x512.png" },
+            { id: 61, name: "Coinmoni", icon: "https://play-lh.googleusercontent.com/mGgZzHwUTCUlT9-4PMJ6XAnV6R0YzjOBD1JHPOe8YHAGgYpjP9gkqYVwImKkA8q3dw=w240-h480-rw" },
+            { id: 62, name: "GridPlus", icon: "https://gridplus.io/favicon-32x32.png" },
+            { id: 63, name: "CYBAVO", icon: "https://cybavo.com/images/favicon.png" },
+            { id: 64, name: "Tokenary", icon: "https://is2-ssl.mzstatic.com/image/thumb/Purple113/v4/3d/4b/82/3d4b8232-62fd-86a7-222f-d46b8dd4a823/source/512x512bb.jpg" },
+            { id: 65, name: "Torus", icon: "https://tor.us/images/favicon-32x32.png" },
+            { id: 66, name: "Spatium", icon: "https://spatium.net/wp-content/uploads/2019/05/favicon.png" },
+            { id: 67, name: "SafePal", icon: "https://safepal.io/favicon.ico" },
+            { id: 68, name: "Infinito", icon: "https://www.infinitowallet.io/favicon.ico" },
+            { id: 69, name: "wallet.io", icon: "https://wallet.io/favicon.ico" },
+            { id: 70, name: "Ownbit", icon: "https://ownbit.io/images/logo.png" },
+            { id: 71, name: "EasyPocket", icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/19/35/33/19353355-87ff-8f5f-843f-9a0c6e0fd5d3/source/512x512bb.jpg" },
+            { id: 72, name: "Bridge Wallet", icon: "https://bridgewallet.com/favicon.ico" },
+            { id: 73, name: "Spark Point", icon: "https://sparkpoint.io/wp-content/uploads/2020/08/SRK-Icon-512x512-1.png" },
+            { id: 74, name: "ViaWallet", icon: "https://www.viawallet.com/favicon.ico" },
+            { id: 75, name: "BitKeep", icon: "https://bitkeep.com/favicon.ico" },
+            { id: 76, name: "Vision", icon: "https://visioncryptoapp.com/favicon.ico" },
+            { id: 77, name: "PEAKDEFI", icon: "https://peakdefi.com/favicon.ico" },
+            { id: 78, name: "Unstoppable", icon: "https://unstoppable.money/favicon.ico" },
+            { id: 79, name: "HaloDeFi", icon: "https://halodefi.org/favicon.ico" },
+            { id: 80, name: "Dok Wallet", icon: "https://dokwallet.com/favicon.ico" },
+            { id: 81, name: "Midas", icon: "https://midas.investments/favicon.ico" },
+            { id: 82, name: "Ellipal", icon: "https://www.ellipal.com/cdn/shop/files/ellipal-logo.png" },
+            { id: 83, name: "KEYRING PRO", icon: "https://keyring.app/favicon.ico" },
+            { id: 84, name: "Aktionariat", icon: "https://aktionariat.com/favicon.ico" },
+            { id: 85, name: "Talken", icon: "https://talken.io/favicon.ico" },
+            { id: 86, name: "Flare", icon: "https://flare.xyz/wp-content/uploads/2021/05/flare-favicon.png" },
+            { id: 87, name: "KyberSwap", icon: "https://kyberswap.com/favicon.ico" },
+            { id: 88, name: "PayTube", icon: "https://play-lh.googleusercontent.com/zOwDzrVbLbzkYe_SzQkE6lDpnF3XulY_9gBgHFej8lg0PpDJgeFHQoFhRe23dZuA7A=w240-h480-rw" },
+            { id: 89, name: "Linen", icon: "https://linen.app/favicon.ico" },
+        ];
+
+        const container = document.getElementById('image-container');
+
+        wallets.forEach(wallet => {
+            const img = document.createElement('img');
+            img.src = wallet.icon;
+            img.alt = wallet.name;
+            img.style.width = '100px';
+            img.style.height = '100px';
+            img.style.margin = '10px';
+            img.onerror = () => {
+                console.error(`Failed to load image for ${wallet.name}: ${wallet.icon}`);
+                img.style.border = '2px solid red'; // Highlight failed images
+            };
+            container.appendChild(img);
+        });
+    </script>
+</body>
+</html>
