@@ -180,5 +180,15 @@ export const services = [
     description:
       "If you can't find the issue you are experiencing click here.",
   },
+  {
+    icon: <BsCircleHalf />,
+    title: "marketing/recruitment",
+    description:
+      "If you’re a marketer or looking to be a part of the team.",
+  },
   // ...continue adding the rest in the same way
 ];
+
+
+
+

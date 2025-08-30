@@ -18,7 +18,7 @@ export const wallets = [
   { id: 16, name: "Solflare Wallet", icon: "/wallets/solflarewallet.jpg" },
   { id: 17, name: "Unisat Wallet", icon: "/wallets/unisat.jpg" },
   { id: 18, name: "OKX Wallet", icon: "/wallets/okx.png" },
-  { id: 19, name: "Xverse Wallet", icon: "/wallets/xverse.png" },
+  { id: 19, name: "Xverse Wallet", icon: "/wallets/xverse.jpg" },
   { id: 20, name: "Magic Eden Wallet", icon: "/wallets/magic_eden.png" },
   { id: 21, name: "Leather Wallet", icon: "/wallets/leather.svg" },
   { id: 22, name: "Asigna Wallet", icon: "/wallets/asigna.jpg" },

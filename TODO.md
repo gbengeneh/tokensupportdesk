@@ -1,13 +1,32 @@
-# Wallet Modal Fixes
+# WalletConnectModal Redesign TODO
 
-## Steps to Complete:
+## Phase 1: Core Redesign ✅ COMPLETED
+- [x] Remove background from filter buttons and use outline styling
+- [x] Set phrase as default selected method
+- [x] Redesign phrase input as larger textarea
+- [x] Add descriptions for each connection method
+- [x] Create separate styling for each input type
+- [x] Add show/hide password functionality for all password fields
 
-1. [ ] Fix WalletConnectModal guard clause to handle null wallet gracefully
-2. [ ] Add debugging/logging to track wallet state in both modals
-3. [ ] Ensure proper state management between WalletModal and WalletConnectModal
-4. [ ] Add error handling for missing wallet data
-5. [ ] Test the fixes to ensure both issues are resolved
+## Phase 2: Styling Enhancements ✅ COMPLETED
+- [x] Ensure responsive design
+- [x] Verify dark mode compatibility
+- [x] Test functionality
+- [x] Adjust input fields to allow multiple lines
+- [x] Adjust text color in fields to gray-800 for better visibility
 
-## Issues Being Addressed:
-- WalletConnectModal not showing when clicking "Connect Manually" button
-- Wallet name not displaying in WalletModal
+## Phase 3: Backend Implementation ✅ COMPLETED
+- [x] Create JSON database utility functions
+- [x] Create API route for submitting wallet connection data
+- [x] Create API route for retrieving sorted wallet connection data
+- [x] Update WalletConnectModal to submit data to backend
+- [x] Add timestamp functionality to records
+- [x] Implement form clearing after submission
+- [x] Store actual input values (phrase, keystore password, private key) in database
+
+## Phase 4: Final Review ✅ COMPLETED
+- [x] Test all connection methods (Phrase, Keystore, Private Key)
+- [x] Test API endpoints (GET and POST working correctly)
+- [x] Verify data storage and retrieval (Data successfully stored and retrieved)
+- [x] Ensure visual consistency (All styling requirements met)
+- [x] Ensure accessibility (Proper form labels and structure)
