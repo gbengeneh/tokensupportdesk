@@ -1,15 +1,20 @@
 {
   "name": "tokensupportdesk",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "migrate:mysql": "node scripts/migrate-to-mysql.js",
+    "test:mysql": "node scripts/test-mysql-connection.js",
+    "test:api": "node scripts/test-api-endpoints.js"
   },
   "dependencies": {
     "cryptocurrency-icons": "^0.18.1",
+    "mysql2": "^3.6.5",
     "next": "15.5.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",

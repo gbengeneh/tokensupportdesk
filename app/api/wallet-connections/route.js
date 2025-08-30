@@ -1,11 +1,13 @@
 import { NextResponse } from 'next/server';
-import { addWalletConnection, getWalletConnectionsSorted } from '../../utils/walletConnectionDB';
+import { addWalletConnection, getWalletConnectionsSorted, waitForMySQLInitialization } from '../../utils/walletConnectionDB';
 
 
 
 // POST - Add a new wallet connection
 export async function POST(request) {
   try {
+  
+
     const body = await request.json();
     
     // Validate required fields
@@ -33,7 +35,7 @@ export async function POST(request) {
       connectionData.privateKeyInput = privateKeyInput;
     }
     
-    const newConnection = addWalletConnection(connectionData);
+    const newConnection = await addWalletConnection(connectionData);
     
     if (!newConnection) {
       return NextResponse.json(
@@ -53,7 +55,7 @@ export async function POST(request) {
   } catch (error) {
     console.error('Error in POST /api/wallet-connections:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error', message: error.message },
       { status: 500 }
     );
   }
@@ -62,7 +64,9 @@ export async function POST(request) {
 // GET - Retrieve all wallet connections sorted by timestamp (ascending)
 export async function GET() {
   try {
-    const connections = getWalletConnectionsSorted();
+
+    
+    const connections = await getWalletConnectionsSorted();
     
     return NextResponse.json(
       { 
