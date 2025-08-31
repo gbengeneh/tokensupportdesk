@@ -23,10 +23,19 @@ const IntroVideo = () => {
           </div>
 
           {/* Video Section (Thumbnail Background) */}
-         <div className="relative mt-10 mx-45 rounded-lg overflow-hidden h-144 flex items-center justify-center bg-gray-800 bg-cover bg-center"
-              style={{ backgroundImage: "url('/skywaterimage.jpeg')" }}
-            >
-
+         <div
+            className="
+              relative 
+              mt-10 
+              mx-4 sm:mx-8 md:mx-16 lg:mx-24 
+              rounded-lg 
+              overflow-hidden 
+              h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] 
+              flex items-center justify-center 
+              bg-gray-800 bg-cover bg-center
+            "
+            style={{ backgroundImage: "url('/skywaterimage.jpeg')" }}
+          >
             {/* Overlay */}
             {/* <div className="absolute inset-0 bg-black bg-opacity-30"></div> */}
 
@@ -35,11 +44,12 @@ const IntroVideo = () => {
               href="https://www.youtube.com/watch?v=qOVAbKKSH10"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative flex items-center justify-center w-20 h-20 rounded-full bg-blue-600 hover:bg-blue-700 transition z-10"
+              className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-blue-600 hover:bg-blue-700 transition z-10"
             >
-              <i className="bi bi-play-fill text-white text-4xl"></i>
+              <i className="bi bi-play-fill text-white text-3xl sm:text-4xl"></i>
             </a>
           </div>
+
 
           {/* CTA Button */}
           <div className="text-center mt-10">
