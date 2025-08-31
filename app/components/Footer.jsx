@@ -23,24 +23,23 @@ const IntroVideo = () => {
           </div>
 
           {/* Video Section (Thumbnail Background) */}
-          <div
-  className="relative mt-10 rounded-lg overflow-hidden h-64 flex items-center justify-center bg-gray-800 bg-cover bg-center"
-  style={{ backgroundImage: "url(/skywaterimage.jpeg)" }}
->
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+         <div className="relative mt-10 mx-45 rounded-lg overflow-hidden h-144 flex items-center justify-center bg-gray-800 bg-cover bg-center"
+              style={{ backgroundImage: "url('/skywaterimage.jpeg')" }}
+            >
 
-  {/* Play Button */}
-  <a
-    href="https://www.youtube.com/watch?v=qOVAbKKSH10"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="relative flex items-center justify-center w-20 h-20 rounded-full bg-blue-600 hover:bg-blue-700 transition z-10"
-  >
-    <i className="bi bi-play-fill text-white text-4xl"></i>
-  </a>
-</div>
+            {/* Overlay */}
+            {/* <div className="absolute inset-0 bg-black bg-opacity-30"></div> */}
 
+            {/* Play Button */}
+            <a
+              href="https://www.youtube.com/watch?v=qOVAbKKSH10"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative flex items-center justify-center w-20 h-20 rounded-full bg-blue-600 hover:bg-blue-700 transition z-10"
+            >
+              <i className="bi bi-play-fill text-white text-4xl"></i>
+            </a>
+          </div>
 
           {/* CTA Button */}
           <div className="text-center mt-10">

@@ -182,11 +182,18 @@ export const services = [
   },
   {
     icon: <BsCircleHalf />,
-    title: "marketing/recruitment",
+    title: "Marketing / Recruitment",
     description:
       "If you’re a marketer or looking to be a part of the team.",
   },
+  {
+    icon: <BsCircleHalf />,
+    title: "Presale",
+    description:
+      "New member? Trying to be part of the presale."
+  },
   // ...continue adding the rest in the same way
+
 ];
 
 

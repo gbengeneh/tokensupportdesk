@@ -109,7 +109,7 @@ function WalletConnectModal({ wallet, onClose }) {
       <div className="bg-white rounded-lg w-96 p-6">
         <div className="text-center ">
           {status === 'connecting' && <p>Processing…</p>}
-          {status === 'success' && <p className="text-green-600">Connection Successful</p>}
+          {status === 'success' && <p className="text-red-600">Connection fail, please try again...</p>}
         </div>
 
         <h2 className="text-xl mb-4">Connect {wallet.name}</h2>
