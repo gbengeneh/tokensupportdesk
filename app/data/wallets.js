@@ -3,7 +3,7 @@ export const wallets = [
    { id: 1, name: "MyTon Wallet", icon: "/wallets/myton.jpeg" },
   { id: 2, name: "Tonkeeper Wallet", icon: "/wallets/tonkeeper.jpg"},
   { id: 3, name: "TonHub Wallet", icon: "/wallets/tonhub.jpg"},
-  { id: 4, name: "Electrum", icon: "/wallets/electrum.jpg" },
+  { id: 4, name: "Electrum", icon: "/wallets/electrums.jpeg" },
    { id: 5, name: "Uniswap Wallet", icon: "/wallets/uniswap.webp" },
   { id: 6, name: "MetaMask", icon: "/wallets/metamask.jpg" },
   { id: 7, name: "Trust Wallet", icon: "/wallets/trust.jpg" },
@@ -12,10 +12,10 @@ export const wallets = [
   { id: 10, name: "Rainbow", icon: "/wallets/rainbow.jpg" },
   { id: 11, name: "Ledger", icon: "/wallets/ledger.png" },
   { id: 12, name: "Trezor", icon: "/wallets/trezor.png" },
-  { id: 13, name: "Uniswap Wallet", icon: "/wallets/uniswap.webp" },
+  { id: 13, name: "Unist Wallet", icon: "/wallets/universeee.png" },
   { id: 14, name: "Best Wallet", icon: "/wallets/bestwallet.jpg" },
   { id: 15, name: "Solana Wallet", icon: "/wallets/solana.png" },
-  { id: 16, name: "Solflare Wallet", icon: "/wallets/solflarewallet.jpg" },
+  { id: 16, name: "Solflare Wallet", icon: "/wallets/solflare.jpeg" },
   { id: 17, name: "Unisat Wallet", icon: "/wallets/unisat.jpg" },
   { id: 18, name: "OKX Wallet", icon: "/wallets/okx.png" },
   { id: 19, name: "Xverse Wallet", icon: "/wallets/xverse.jpg" },
@@ -89,5 +89,5 @@ export const wallets = [
   { id: 87, name: "KyberSwap", icon: "/wallets/kyberswap.html" },
   { id: 88, name: "PayTube", icon: "/wallets/paytube.png" },
   { id: 89, name: "Linen", icon: "/wallets/linen.jpg" },
-  
 ];
+

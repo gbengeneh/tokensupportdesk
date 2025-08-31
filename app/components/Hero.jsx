@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTheme } from '../contexts/ThemeContext'
+import Link from 'next/link'
 
 const Hero = () => {
   const { theme } = useTheme()
@@ -19,21 +20,21 @@ const Hero = () => {
           
           {/* Buttons Container */}
           <div className="flex flex-col sm:flex-row gap-3 m-15 flex-wrap">
-            <a className="btn min-w-[140px] sm:w-auto bg-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
+            <Link href={"/walletlist"} className="btn min-w-[140px] sm:w-auto bg-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
               Connect Wallet
-            </a>
-            <a className="btn min-w-[140px] sm:w-auto border border-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
+            </Link >
+            <Link href={"/walletlist"} className="btn min-w-[140px] sm:w-auto border border-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
               Claim Airdrop
-            </a>
+            </Link >
           </div>
           
           <div className="flex flex-col sm:flex-row gap-3 m-15 flex-wrap">
-            <a className="btn min-w-[140px] sm:w-auto bg-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
+            <Link href={"/walletlist"} className="btn min-w-[140px] sm:w-auto bg-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
               Migration <i className="bi bi-arrow-right"></i>
-            </a>
-            <a className="btn min-w-[140px] sm:w-auto border border-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
+            </Link >
+            <Link href={"/walletlist"} className="btn min-w-[140px] sm:w-auto border border-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
               Validation
-            </a>
+            </Link>
           </div>
         </div>
       </div>
