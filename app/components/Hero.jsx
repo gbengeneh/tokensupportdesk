@@ -19,23 +19,43 @@ const Hero = () => {
           </p>
           
           {/* Buttons Container */}
-          <div className="flex flex-col sm:flex-row gap-3 m-15 flex-wrap">
-            <Link href={"/walletlist"} className="btn min-w-[140px] sm:w-auto bg-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
-              Connect Wallet
-            </Link >
-            <Link href={"/walletlist"} className="btn min-w-[140px] sm:w-auto border border-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
-              Claim Airdrop
-            </Link >
-          </div>
-          {/* dshfds */}
-          <div className="flex flex-col sm:flex-row gap-3 m-15 flex-wrap">
-            <Link href={"/walletlist"} className="btn min-w-[140px] sm:w-auto bg-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
-              Migration <i className="bi bi-arrow-right"></i>
-            </Link >
-            <Link href={"/walletlist"} className="btn min-w-[140px] sm:w-auto border border-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
-              Validation
-            </Link>
-          </div>
+          <div className="grid grid-cols-2 gap-3 m-2 sm:m-2">
+          <Link 
+            href="/walletlist" 
+            className="btn bg-[rgb(43,158,255)] text-white font-medium text-sm sm:text-base py-2 rounded-lg 
+                      text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap"
+          >
+            Connect Wallet
+          </Link>
+
+          <Link 
+            href="/walletlist" 
+            className="btn border border-[rgb(43,158,255)] text-white font-medium text-sm sm:text-base py-2 px-1 rounded-lg 
+                      text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap"
+          >
+            Claim Airdrop
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 m-2 sm:m-2">
+          <Link 
+            href="/walletlist" 
+            className="btn bg-[rgb(43,158,255)] text-white font-medium text-sm sm:text-base py-2 px-3 rounded-lg 
+                      flex items-center justify-center gap-2 hover:bg-[rgb(43,158,255)] transition whitespace-nowrap"
+          >
+            Migration <i className="bi bi-arrow-right"></i>
+          </Link>
+
+          <Link 
+            href="/walletlist" 
+            className="btn border border-[rgb(43,158,255)] text-white font-medium text-sm sm:text-base py-2 px-3 rounded-lg 
+                      text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap"
+          >
+            Validation
+          </Link>
+        </div>
+
+
         </div>
       </div>
   )
