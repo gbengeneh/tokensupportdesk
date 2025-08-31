@@ -27,7 +27,7 @@ const Hero = () => {
               Claim Airdrop
             </Link >
           </div>
-          
+          {/* dshfds */}
           <div className="flex flex-col sm:flex-row gap-3 m-15 flex-wrap">
             <Link href={"/walletlist"} className="btn min-w-[140px] sm:w-auto bg-[rgb(43,158,255)] text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-[rgb(43,158,255)] transition whitespace-nowrap">
               Migration <i className="bi bi-arrow-right"></i>
