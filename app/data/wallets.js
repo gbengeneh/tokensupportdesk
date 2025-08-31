@@ -4,7 +4,7 @@ export const wallets = [
   { id: 2, name: "Tonkeeper Wallet", icon: "/wallets/tonkeeper.jpg"},
   { id: 3, name: "TonHub Wallet", icon: "/wallets/tonhub.jpg"},
   { id: 4, name: "Electrum", icon: "/wallets/electrum.jpg" },
-   { id: 5, name: "Uniswap Wallet", icon: "/wallets/uniswap-Logo.webp" },
+   { id: 5, name: "Uniswap Wallet", icon: "/wallets/uniswap.webp" },
   { id: 6, name: "MetaMask", icon: "/wallets/metamask.jpg" },
   { id: 7, name: "Trust Wallet", icon: "/wallets/trust.jpg" },
   { id: 8, name: "Coinbase", icon: "/wallets/coinbase.png" },
