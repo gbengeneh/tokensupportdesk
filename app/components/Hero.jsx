@@ -19,41 +19,43 @@ const Hero = () => {
           </p>
           
           {/* Buttons Container */}
-          <div className="grid grid-cols-2 gap-3 m-2 sm:m-2">
-          <Link 
-            href="/walletlist" 
-            className="btn bg-[rgb(43,158,255)] text-white font-medium text-sm sm:text-base py-2 rounded-lg 
-                      text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap"
+      <div className="w-full max-w-sm ">
+        <div className="grid grid-cols-2 gap-4   sm:m-2 ">
+          <Link
+            href="/walletlist"
+            className="inline-flex items-center justify-center text-sm  rounded-lg
+                      bg-[rgb(43,158,255)] text-white min-w-[100px] max-w-[160px] w-auto"
           >
             Connect Wallet
           </Link>
 
-          <Link 
-            href="/walletlist" 
-            className="btn border border-[rgb(43,158,255)] text-white font-medium text-sm sm:text-base py-2 px-1 rounded-lg 
-                      text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap"
+          <Link
+            href="/walletlist"
+            className="inline-flex items-center justify-center text-sm px-1 rounded-lg
+                      border border-[rgb(43,158,255)] text-white min-w-[90px] max-w-[160px] h-10 w-auto"
           >
             Claim Airdrop
           </Link>
-        </div>
 
-        <div className="grid grid-cols-2 gap-3 m-2 sm:m-2">
-          <Link 
-            href="/walletlist" 
-            className="btn bg-[rgb(43,158,255)] text-white font-medium text-sm sm:text-base py-2 px-3 rounded-lg 
-                      flex items-center justify-center gap-2 hover:bg-[rgb(43,158,255)] transition whitespace-nowrap"
+          <Link
+            href="/walletlist"
+            className="inline-flex items-center justify-center gap-2 text-sm px-3 py-2 rounded-lg
+                      bg-[rgb(43,158,255)] text-white min-w-[90px] max-w-[160px] w-auto"
           >
-            Migration <i className="bi bi-arrow-right"></i>
+            Migration <i className="bi bi-arrow-right text-xs"></i>
           </Link>
 
-          <Link 
-            href="/walletlist" 
-            className="btn border border-[rgb(43,158,255)] text-white font-medium text-sm sm:text-base py-2 px-3 rounded-lg 
-                      text-center hover:bg-[rgb(43,158,255)] transition whitespace-nowrap"
+          <Link
+            href="/walletlist"
+            className="inline-flex items-center justify-center text-sm px-3 py-2 rounded-lg
+                      border border-[rgb(43,158,255)] text-white min-w-[90px] max-w-[160px] w-auto"
           >
             Validation
           </Link>
         </div>
+      </div>
+
+
 
 
         </div>
