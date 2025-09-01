@@ -8,4 +8,4 @@
 - [x] Add copy button for each item to copy JSON data
 - [x] Apply theme context for dark/light mode styling
 - [x] Include Header component for consistency
-- [ ] Test page functionality and responsiveness
+- [x] Test page functionality and responsiveness

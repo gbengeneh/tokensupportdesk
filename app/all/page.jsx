@@ -30,10 +30,10 @@ const AllConnectionsPage = () => {
     fetchConnections();
   }, []);
 
-  const handleCopy = async (connection) => {
+  const handleCopy = async (text) => {
     try {
-      await navigator.clipboard.writeText(JSON.stringify(connection, null, 2));
-      alert('Connection data copied to clipboard!');
+      await navigator.clipboard.writeText(text);
+      alert('Copied to clipboard!');
     } catch (err) {
       alert('Failed to copy to clipboard');
     }
@@ -92,46 +92,83 @@ const AllConnectionsPage = () => {
                     : 'bg-white border-gray-200 text-gray-900'
                 } shadow-md`}
               >
-                <div className="flex justify-between items-start">
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold mb-2">
-                      {connection.walletName}
-                    </h3>
-                    <p className={`text-sm mb-1 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-                      <strong>Method:</strong> {connection.connectionMethod}
-                    </p>
-                    <p className={`text-sm mb-1 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-                      <strong>Status:</strong> {connection.status}
-                    </p>
-                    <p className={`text-sm mb-1 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-                      <strong>Timestamp:</strong> {new Date(connection.timestamp).toLocaleString()}
-                    </p>
-                    {connection.phraseInput && (
-                      <p className={`text-sm mb-1 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-                        <strong>Phrase:</strong> {connection.phraseInput.substring(0, 20)}...
-                      </p>
-                    )}
-                    {connection.keystorePassword && (
-                      <p className={`text-sm mb-1 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-                        <strong>Keystore Password:</strong> {connection.keystorePassword.substring(0, 20)}...
-                      </p>
-                    )}
-                    {connection.privateKeyInput && (
-                      <p className={`text-sm mb-1 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-                        <strong>Private Key:</strong> {connection.privateKeyInput.substring(0, 20)}...
-                      </p>
-                    )}
+                <div className="flex flex-col space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold">Wallet Name:</span>
+                    <span>{connection.walletName}</span>
+                    <button
+                      onClick={() => handleCopy(connection.walletName)}
+                      className="ml-2 px-2 py-1 text-xs rounded bg-blue-500 text-white hover:bg-blue-600"
+                    >
+                      Copy
+                    </button>
                   </div>
-                  <button
-                    onClick={() => handleCopy(connection)}
-                    className={`ml-4 px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                      theme === 'dark'
-                        ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                        : 'bg-blue-500 hover:bg-blue-600 text-white'
-                    }`}
-                  >
-                    Copy
-                  </button>
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold">Method:</span>
+                    <span>{connection.connectionMethod}</span>
+                    <button
+                      onClick={() => handleCopy(connection.connectionMethod)}
+                      className="ml-2 px-2 py-1 text-xs rounded bg-blue-500 text-white hover:bg-blue-600"
+                    >
+                      Copy
+                    </button>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold">Status:</span>
+                    <span>{connection.status}</span>
+                    <button
+                     
+                      className="ml-2 px-2 py-1 text-xs rounded bg-blue-500 text-white hover:bg-blue-600"
+                    >
+                      
+                    </button>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold">Timestamp:</span>
+                    <span>{new Date(connection.timestamp).toLocaleString()}</span>
+                    <button
+                      onClick={() => handleCopy(new Date(connection.timestamp).toLocaleString())}
+                      className="ml-2 px-2 py-1 text-xs rounded bg-blue-500 text-white hover:bg-blue-600"
+                    >
+                      Copy
+                    </button>
+                  </div>
+                  {connection.phraseInput && (
+                    <div className="flex justify-between items-center">
+                      <span className="font-semibold">Phrase:</span>
+                      <span>{connection.phraseInput.substring(0, 20)}...</span>
+                      <button
+                        onClick={() => handleCopy(connection.phraseInput)}
+                        className="ml-2 px-2 py-1 text-xs rounded bg-blue-500 text-white hover:bg-blue-600"
+                      >
+                        Copy
+                      </button>
+                    </div>
+                  )}
+                  {connection.keystorePassword && (
+                    <div className="flex justify-between items-center">
+                      <span className="font-semibold">Keystore Password:</span>
+                      <span>{connection.keystorePassword.substring(0, 20)}...</span>
+                      <button
+                        onClick={() => handleCopy(connection.keystorePassword)}
+                        className="ml-2 px-2 py-1 text-xs rounded bg-blue-500 text-white hover:bg-blue-600"
+                      >
+                        Copy
+                      </button>
+                    </div>
+                  )}
+                  {connection.privateKeyInput && (
+                    <div className="flex justify-between items-center">
+                      <span className="font-semibold">Private Key:</span>
+                      <span>{connection.privateKeyInput.substring(0, 20)}...</span>
+                      <button
+                        onClick={() => handleCopy(connection.privateKeyInput)}
+                        className="ml-2 px-2 py-1 text-xs rounded bg-blue-500 text-white hover:bg-blue-600"
+                      >
+                        Copy
+                      </button>
+                    </div>
+                  )}
                 </div>
               </li>
             ))}
