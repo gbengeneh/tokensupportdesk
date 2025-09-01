@@ -34,13 +34,13 @@ export const ThemeProvider = ({ children }) => {
     const newDarkMode = !isDarkMode;
     setIsDarkMode(newDarkMode);
     document.body.classList.toggle('dark', newDarkMode);
-    localStorage.setItem('theme', newDarkMode ? 'dark' : 'light');
+    localStorage.setItem('theme', newDarkMode ? 'dark' : 'dark');
   };
 
   const value = {
     isDarkMode,
     toggleTheme,
-    theme: isDarkMode ? 'dark' : 'light'
+    theme: isDarkMode ? 'dark' : 'dark'
   };
 
   return (

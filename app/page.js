@@ -9,7 +9,7 @@ const Page = () => {
   const { theme } = useTheme();
 
   return (
-    <div className={`w-full h-auto bg-${theme === 'dark' ? 'black' : 'white'} text-${theme === 'dark' ? 'white' : 'black'}`}>
+    <div className={`w-full h-auto bg-black text-${theme === 'dark' ? 'white' : 'black'}`}>
       <Hero />
       <Services />
        {/* Gray Pencil Triangle after all service cards - Longer version */}

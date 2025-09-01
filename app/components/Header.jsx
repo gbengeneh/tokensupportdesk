@@ -44,8 +44,8 @@ const Header = () => {
   // Default full header for "/"
   return (
     <header className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 py-5 bg-${
-      theme === 'dark' ? 'black' : 'white'
-    } text-${theme === 'dark' ? 'white' : 'black'}`}>
+      theme === 'dark' ? 'black' : 'black'
+    } text-${theme === 'dark' ? 'white' : 'white'}`}>
 
       {/* Logo */}
       <div className="flex items-center">
@@ -76,7 +76,7 @@ const Header = () => {
           onClick={toggleTheme}
           className="text-white mr-4 p-2 rounded-full hover:bg-[rgb(43,158,255)] dark:hover:bg-[rgb(43,158,255)] transition-colors"
         >
-          {isDarkMode ? darkicon : lighticon}
+          {isDarkMode ? darkicon : darkicon}
         </button>
         <Link href="/walletlist">
           <button className="bg-[rgb(43,158,255)] font-medium text-gray-300 px-4 py-2 rounded hover:bg-[rgb(43,158,255)] dark:bg-[rgb(43,158,255)] dark:hover:bg-[rgb(43,158,255)] transition-colors">
