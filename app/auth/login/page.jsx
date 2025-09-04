@@ -1,9 +1,9 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 
-const LoginPage = () => {
+const LoginForm = () => {
   const { theme } = useTheme();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -137,6 +137,14 @@ const LoginPage = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const LoginPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LoginForm />
+    </Suspense>
   );
 };
 
