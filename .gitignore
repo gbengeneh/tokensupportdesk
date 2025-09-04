@@ -17,6 +17,7 @@
 /.next/
 /out/
 
+/app/auth/register
 # production
 /build
 

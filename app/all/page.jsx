@@ -2,12 +2,33 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import { useTheme } from '../contexts/ThemeContext';
+import { useRouter } from 'next/navigation';
+import { useEffect as useClientEffect } from 'react';
 
 const AllConnectionsPage = () => {
   const { theme } = useTheme();
   const [connections, setConnections] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const router = useRouter();
+
+  // Check authentication on client side
+  useClientEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch('/api/auth/check', {
+          method: 'GET',
+          credentials: 'include',
+        });
+        if (!response.ok) {
+          router.push('/auth/login');
+        }
+      } catch (err) {
+        router.push('/auth/login');
+      }
+    };
+    checkAuth();
+  }, [router]);
 
   useEffect(() => {
     const fetchConnections = async () => {
@@ -70,6 +91,27 @@ const AllConnectionsPage = () => {
       <Header />
 
       <main className="pt-34 px-2 sm:px-4 lg:px-6 max-w-6xl mx-auto">
+        <div className="flex justify-end mb-4">
+          <button
+            onClick={async () => {
+              try {
+                const response = await fetch('/api/auth/logout', {
+                  method: 'POST',
+                });
+                if (response.ok) {
+                  window.location.href = '/auth/login';
+                } else {
+                  alert('Logout failed');
+                }
+              } catch (error) {
+                alert('Logout failed');
+              }
+            }}
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+          >
+            Logout
+          </button>
+        </div>
         {/* Header Section */}
         <div className="text-center mb-8">
           <h1 className={`text-3xl font-bold mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
