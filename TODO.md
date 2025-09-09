@@ -1,11 +1,9 @@
-# TODO: Create /all Page for Displaying Wallet Connections
+# TODO: Modify Backend to Send Wallet Data to Telegram
 
-## Tasks
-- [x] Create app/all/page.jsx as a client component
-- [x] Implement data fetching from /api/wallet-connections
-- [x] Sort data in descending order by timestamp
-- [x] Display data as a list (ul/li) with key details
-- [x] Add copy button for each item to copy JSON data
-- [x] Apply theme context for dark/light mode styling
-- [x] Include Header component for consistency
-- [x] Test page functionality and responsiveness
+## Completed Tasks
+- [x] Guide user on obtaining Telegram bot token and chat ID
+- [x] Create Telegram utility function in app/utils/telegramUtils.js
+- [x] Modify app/utils/walletConnectionDB.js to send data to Telegram instead of MySQL
+- [x] Update environment variables for TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID
+- [x] Test the implementation by running the app and checking Telegram
+- [x] Remove or disable MySQL dependencies for wallet connections (optional - skipped as MySQL is used for auth)
